@@ -1,55 +1,181 @@
-body{
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    margin:0;
-    padding:40px;
-    color:white;
 }
 
-/* titulo */
-
-h1{
-    text-align:center;
-    font-size:40px;
-    margin-bottom:40px;
-    letter-spacing:2px;
+/* Body con fondo suave */
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* contenedor */
-
-#listaAutos{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    padding:0;
-    list-style:none;
+/* Header */
+header {
+    background-color: #6c63ff; /* color suave morado */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* tarjetas */
-
-#listaAutos li{
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-    border-radius:15px;
-    padding:25px;
-    font-size:20px;
-    font-weight:500;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    border:1px solid rgba(255,255,255,0.1);
+/* Main contenido centrado */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
 }
 
-/* efecto hover */
-
-#listaAutos li:hover{
-    transform:translateY(-8px) scale(1.03);
-    background:rgba(255,255,255,0.15);
-    box-shadow:0 15px 35px rgba(0,0,0,0.6);
+/* Formulario */
+form {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
 }
 
-/* efecto glow */
+/* Título del formulario */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #6c63ff;
+}
 
-#listaAutos li::before{
-    content:"🔥 ";
-    font-size:24px;
+/* Labels y inputs */
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+    border-color: #6c63ff;
+    outline: none;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #574fd6;
+}
+
+/* Footer */
+footer {
+    background-color: #6c63ff;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+nav{
+    background:  #6c63ff;;    
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    
+}
+ 
+.menu li{
+    margin: 10px;
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.menu a:hover{
+    background: whitesmoke;
+    color: black;
+    box-shadow: 0 0 10px rgb(172, 155, 249);
+}
+
+aside {
+    background: #6f6ad8; 
+    flex: 1;
+    padding: 15px 0;    
+    overflow: hidden;   
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.textoMovimiento {
+    position: absolute;
+    white-space: nowrap; 
+    color: white;
+    font-size: larger;
+    will-change: transform;
+    animation: derecha 25s linear infinite; 
+}
+
+@keyframes derecha {
+    0% {
+        
+        transform: translateX(100vw); 
+    }
+    100% {
+        
+        transform: translateX(-100%); 
+    }
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+    form {
+        padding: 20px;
+    }
 }

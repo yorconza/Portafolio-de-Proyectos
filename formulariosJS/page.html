@@ -1,39 +1,83 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>Formulario</title>
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="img/icons.png">
 </head>
 
 <body>
+    <header>
+        Registro de Usuarios
+    </header>
 
-<h2>Registro</h2>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Consulta Formulario</a></li>
+            <li><a href="#">Nosotros</a></li>
+        </ul>
+    </nav>
+        <aside>
+            <div class="textoMovimiento">
+                <span>Bienvenido al portal de registro de usuarios de Knight</span>
+                —
+                <span>Ingrese sus datos para integrarse a nuestra plataforma de servicios.</span>
+                —
+                <span>Toda la información suministrada se almacena de forma segura en nuestra base de datos (MySQL).</span>
+           </div>     
+        </aside><br>
 
-<form id="formulario">
+    <main>
+        <form id="formulario">
 
-<label>
-    <em>Nombre completo</em>
-    <input type="text" id="nombre" placeholder="Nombre" required>
-</label>
-<br><br>
+            <label>Nombre completo<br>
+                <input type="text" id="nombre" placeholder="Nombre" required>
+            </label>
+            <br><br>
 
-<label>
-    <em>Correo Electrónico</em>
-    <input type="email" id="email" placeholder="ejemplo@gmail.com" required>
-</label>
-<br><br>
+            <label>Correo Electrónico<br>
+                <input type="email" id="email" placeholder="ejemplo@gmail.com" required>
+            </label>
+            <br><br>
 
-<label>
-    <em>Contraseña</em>
-    <input type="password" id="passwords" placeholder="******" required>
-</label>
-<br><br>
+            <label>Contraseña<br>
+                <input type="password" id="passwords" placeholder="******" required>
+            </label>
+            <br><br>
 
-<button type="submit">Guardar</button>
+            <label>Número de télefono<br>
+                <input type="text" id="celular" placeholder="XXXX-XXXX" required>
+            </label>
+            <br><br>
 
-</form>
+            <label>Fecha de nacimiento<br>
+                <input type="date" id="fecha" required>
+            </label>
+            <br><br>
 
-<script src="app.js"></script>
+            <label>Dirección<br>
+                <input type="text" id="direccion" placeholder="Provincia/Cantón" required>
+            </label>
+            <br><br>
 
+            <p>Género:</p>
+            <label><input type="radio" name="genero" value="Masculino" required> Hombre</label>
+            <label><input type="radio" name="genero" value="Femenino"> Mujer</label>
+            <label><input type="radio" name="genero" value="Otro"> Otro</label>
+            <br><br>
+
+            <button type="submit">Guardar</button>
+
+        </form>
+
+
+    </main>
+
+    <footer>
+        &copy; 2026 Knight Corporation. Todos los derechos reservados.
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>

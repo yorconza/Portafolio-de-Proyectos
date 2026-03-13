@@ -1,0 +1,19 @@
+
+FROM node:18
+
+# Creamos la carpeta de trabajo
+WORKDIR /app
+
+COPY package*.json ./
+
+# Instalamos las dependencias
+RUN npm install
+
+# Copiamos TODO lo que tienes en tu carpeta (html, js, css, server)
+COPY . .
+
+# Exponemos el puerto para comunicar con Docker 
+EXPOSE 3000
+
+# Arrancamos el servidor automáticamente
+CMD ["node", "server.js"]

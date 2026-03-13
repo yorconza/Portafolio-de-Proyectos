@@ -12,7 +12,8 @@ const db = mysql.createConnection({
   host: "host.docker.internal",
   user: "root",
   password: "admin123",
-  database: "formulario"
+  database: "formulario",
+  port: 3306
 });
 
 db.connect(err => {
@@ -25,24 +26,24 @@ db.connect(err => {
 
 // endpoint API
 app.post("/guardar", (req, res) => {
+    const { nombre, email, passwords, celular, direccion, fecha, genero } = req.body;
 
-  const { nombre, email, passwords } = req.body;
+    const sql = "INSERT INTO usuarios (nombre, email, passwords, celular, direccion, fecha, genero) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-  const sql = "INSERT INTO usuarios (nombre,email,passwords) VALUES (?,?,?)";
-
-  db.query(sql, [nombre, email, passwords], (err, result) => {
-
-    if (err) {
-      console.log(err);
-      res.status(500).send("Error al guardar");
-    } else {
-      res.send("Usuario guardado");
-    }
-
-  });
-
+    db.query(sql, [nombre, email, passwords, celular, direccion, fecha, genero], (err, result) => {
+        if (err) {
+            // ESTO ES LO IMPORTANTE: Imprime el error en la consola de la terminal
+            console.log("❌ ERROR DE MYSQL DETECTADO:");
+            console.log("Código de error:", err.code);
+            console.log("Mensaje detallado:", err.sqlMessage);
+            
+            // Envía el mensaje al navegador para que lo veas en el alert
+            return res.status(500).send("Error del servidor: " + err.sqlMessage);
+        }
+        res.send("¡Usuario guardado con éxito!");
+    });
 });
 
 app.listen(3000, () => {
-  console.log("API corriendo en puerto 3000");
+  console.log("API ejecutando en puerto 3000");
 });
