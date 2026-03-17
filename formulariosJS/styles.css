@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Body con fondo suave */
+
 body {
     background-color: #f5f7fa;
     color: #333;
@@ -15,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
+
 header {
     background-color: #6c63ff; /* color suave morado */
     color: white;
@@ -26,7 +25,7 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Main contenido centrado */
+
 main {
     flex: 1;
     display: flex;
@@ -35,7 +34,7 @@ main {
     padding: 40px 20px;
 }
 
-/* Formulario */
+
 form {
     background-color: white;
     padding: 30px 40px;
@@ -45,19 +44,22 @@ form {
     max-width: 450px;
 }
 
-/* Título del formulario */
+
+
 h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #6c63ff;
 }
 
-/* Labels y inputs */
+
 label {
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
 }
+
+
 
 input[type="text"],
 input[type="email"],
@@ -72,6 +74,8 @@ input[type="date"] {
     transition: border-color 0.3s;
 }
 
+
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
@@ -80,12 +84,13 @@ input[type="date"]:focus {
     outline: none;
 }
 
-/* Radio buttons */
+
+
 input[type="radio"] {
     margin-right: 8px;
 }
 
-/* Botón */
+
 button {
     width: 100%;
     padding: 12px;
@@ -99,11 +104,14 @@ button {
     transition: background-color 0.3s;
 }
 
+
+
 button:hover {
     background-color: #574fd6;
 }
 
-/* Footer */
+
+
 footer {
     background-color: #6c63ff;
     color: white;
@@ -114,68 +122,159 @@ footer {
     box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
 }
 
+
+
 nav{
     background:  #6c63ff;;    
 }
+
+
 
 .menu{
     display: flex;
     justify-content: space-around;
     list-style: none;
-    
-}
- 
-.menu li{
-    margin: 10px;
 }
 
+ 
+
+.menu li{
+ margin: 10px;
+}
+
+
+
 .menu a{
+
     color: white;
     text-decoration: none;
     padding: 10px 20px;
     transition: 0.3s;
+
 }
+
+
 
 .menu a:hover{
+
     background: whitesmoke;
+
     color: black;
+
     box-shadow: 0 0 10px rgb(172, 155, 249);
+
 }
 
+
+
 aside {
-    background: #6f6ad8; 
+
+    background: #6f6ad8;
     flex: 1;
     padding: 15px 0;    
-    overflow: hidden;   
+    overflow: hidden;  
     position: relative;
     width: 100%;
     display: flex;
     align-items: center;
+
 }
 
+
+
 .textoMovimiento {
+
     position: absolute;
-    white-space: nowrap; 
+    white-space: nowrap;
     color: white;
     font-size: larger;
     will-change: transform;
-    animation: derecha 25s linear infinite; 
+    animation: derecha 25s linear infinite;
+
 }
+
+
 
 @keyframes derecha {
+
     0% {
-        
-        transform: translateX(100vw); 
+
+       
+
+        transform: translateX(100vw);
+
     }
+
     100% {
-        
-        transform: translateX(-100%); 
+
+       
+
+        transform: translateX(-100%);
+
+    }
+
+}
+
+
+
+
+
+@media (max-width: 500px) {
+
+    form {
+
+        padding: 20px;
+
     }
 }
 
-/* Responsivo */
-@media (max-width: 500px) {
-    form {
-        padding: 20px;
-    }
+#contenedorResultado {
+    background-color: white;
+    width: 100%;
+    max-width: 500px; 
+    margin: 20px auto; 
+    padding: 30px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    border: 1px solid #e0e0e0;
+}
+
+
+.factura-titulo {
+    text-align: center;
+    color: #6c63ff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 2px solid #6c63ff;
+    padding-bottom: 10px;
+}
+
+
+.factura-linea {
+    display: flex; 
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+
+.factura-linea:last-child {
+    border-bottom: none;
+}
+
+
+.factura-etiqueta {
+    font-weight: bold; 
+    color: #555; 
+    width: 40%; 
+    text-align: left;
+}
+
+
+.factura-info {
+    color: #333; 
+    width: 60%; 
+    text-align: right; 
+    word-wrap: break-word; 
 }

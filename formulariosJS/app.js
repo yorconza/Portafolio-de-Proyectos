@@ -1,42 +1,52 @@
-console.log("APP JS CARGADO");
-const form = document.getElementById("formulario");
+// --- LÓGICA DE CONSULTA (consulta.html) ---
+const btnConsultar = document.getElementById("btnConsultar");
+const inputNombre = document.getElementById("nombreBusqueda");
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+if (btnConsultar && inputNombre) {
+    btnConsultar.addEventListener("click", async () => {
+        const valor = inputNombre.value.toLowerCase().trim();
 
-    console.log("FORMULARIO ENVIADO");
-    
-    const generoSeleccionado = document.querySelector('input[name="genero"]:checked');
+        if (!valor) {
+            alert("Escribe un nombre primero");
+            return;
+        }
 
-    if (!generoSeleccionado) {
-        alert("Seleccione un género");
-        return;
-    }
-
-    const datos = {
-        nombre: document.getElementById("nombre").value,
-        email: document.getElementById("email").value,
-        passwords: document.getElementById("passwords").value,
-        celular: document.getElementById("celular").value,
-        direccion: document.getElementById("direccion").value,
-        fecha: document.getElementById("fecha").value,
-        genero: generoSeleccionado.value
-    };
-
-    try {
-        const response = await fetch("http://localhost:3000/guardar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(datos)
-        });
-
-        const data = await response.text();
-        alert(data);
-        form.reset();
-    } catch (error) {
-        console.error("Error al enviar:", error);
-        alert("No se pudo conectar con el servidor");
-    }
-}); // <-- Aquí terminaba el error, quité el "app" que tenías de más
+        try {
+            const response = await fetch(`http://localhost:3000/consultar/${encodeURIComponent(valor)}`);
+            const datosPersona = document.getElementById("datosPersona");
+            
+            if (response.ok) {
+                const data = await response.json();
+                
+                // --- AQUÍ PONEMOS EL ESTILO FACTURA ---
+                datosPersona.innerHTML = `
+                    <div class="factura-row">
+                        <div class="factura-etiqueta">Nombre del Usuario:</div>
+                        <div class="factura-value">${data.nombre}</div>
+                    </div>
+                    <div class="factura-row">
+                        <div class="factura-etiqueta">Teléfono:</div>
+                        <div class="factura-value">${data.celular}</div>
+                    </div>
+                    <div class="factura-row">
+                        <div class="factura-etiqueta">Género:</div>
+                        <div class="factura-value">${data.genero}</div>
+                    </div>
+                    <div class="factura-row">
+                        <div class="factura-etiqueta">Dirección:</div>
+                        <div class="factura-value">${data.direccion}</div>
+                    </div>
+                    <div class="factura-row">
+                        <div class="factura-etiqueta">Correo Electrónico:</div>
+                        <div class="factura-value">${data.email || 'No registrado'}</div>
+                    </div>
+                `;
+            } else {
+                datosPersona.innerHTML = `<p style="color:red; text-align:center; margin-top:20px;">⚠️ No se encontró al usuario: <b>${valor}</b></p>`;
+            }
+        } catch (error) {
+            console.error("Error de red:", error);
+            alert("Error al conectar con el servidor");
+        }
+    });
+}

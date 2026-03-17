@@ -6,41 +6,38 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// CAMBIO AQUÍ: Usamos createPool en lugar de createConnection
 const db = mysql.createPool({
   host: "host.docker.internal",
   user: "root",
-  password: "admin123",
+  password: "admin123", // Tu contraseña
   database: "formulario",
-  port: 3306,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  port: 3306
 });
 
-// Verificamos la conexión
-db.getConnection((err, connection) => {
-  if (err) {
-    console.error(" Error conectando a MySQL:", err.message);
-    return;
-  }
-  console.log("Conectado a MySQL a través del Pool");
-  connection.release(); // Liberamos la conexión de prueba
-});
-
+// --- RUTA POST (Ya la tenías) ---
 app.post("/guardar", (req, res) => {
     const { nombre, email, passwords, celular, direccion, fecha, genero } = req.body;
     const sql = "INSERT INTO usuarios (nombre, email, passwords, celular, direccion, fecha, genero) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    
-    db.query(sql, [nombre, email, passwords, celular, direccion, fecha, genero], (err, result) => {
-        if (err) {
-            console.error("Error en la base de datos:", err);
-            return res.status(500).send(err.message);
-        }
-        res.send("Usuario guardado correctamente");
+    db.query(sql, [nombre, email, passwords, celular, direccion, fecha, genero], (err) => {
+        if (err) return res.status(500).send(err.message);
+        res.send("Usuario guardado");
     });
 });
 
-app.listen(3000, () => {
-  console.log("Servidor corriendo en el puerto 3000");
+// --- RUTA GET (La que te faltaba) ---
+app.get("/consultar/:nombre", (req, res) => {
+    const nombreBusqueda = req.params.nombre.trim();
+    // Usamos LOWER para que no importe si es Mayúscula o Minúscula
+    const sql = "SELECT * FROM usuarios WHERE LOWER(nombre) = LOWER(?)";
+    
+    db.query(sql, [nombreBusqueda], (err, results) => {
+        if (err) return res.status(500).json(err);
+        if (results.length > 0) {
+            res.json(results[0]);
+        } else {
+            res.status(404).json({ mensaje: "No encontrado" });
+        }
+    });
 });
+
+app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));
