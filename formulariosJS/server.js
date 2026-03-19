@@ -16,11 +16,11 @@ app.use(express.static(__dirname));
 // --- CONFIGURACIÓN DE LA BASE DE DATOS ---
 // Usamos variables de entorno (process.env) para proteger tus credenciales en Render
 const db = mysql.createPool({
-    host: "tu-host-de-aiven",
-    user: "avnadmin",
-    password: "AVNS_vQV0YQw4NS4Npk-HBCj",
-    database: "defaultdb",
-    port: 19495,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD, // <--- REVISA QUE DIGA ESTO
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT || 19495,
     ssl: { rejectUnauthorized: false }
 });
 
