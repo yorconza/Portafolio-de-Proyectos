@@ -16,22 +16,25 @@ if (formulario) {
         };
 
         try {
-            const response = await fetch('/guardar', {
+            // --- CAMBIO AQUÍ: Usamos la URL completa de Render para guardar ---
+            const response = await fetch('https://knightrecords.onrender.com/guardar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(datos)
             });
+            
             const resData = await response.json();
             alert(response.ok ? "✅ " + resData.mensaje : "⚠️ Error: " + resData.error);
             if (response.ok) formulario.reset();
         } catch (error) {
             console.error("Error registro:", error);
+            alert("❌ No se pudo conectar con el servidor.");
         }
     });
 }
 
 // ==========================================
-// PARTE 2: LÓGICA DE CONSULTA (consulta.html)
+// PARTE 2: LÓGICA DE CONSULTA
 // ==========================================
 const btnConsultar = document.getElementById("btnConsultar");
 if (btnConsultar) {
@@ -43,7 +46,8 @@ if (btnConsultar) {
         if (!nombreParaBuscar) return alert("⚠️ Ingresa un nombre.");
 
         try {
-            const response = await fetch(`/consultar/${nombreParaBuscar}`);
+            // --- CAMBIO AQUÍ: Usamos la URL completa de Render para consultar ---
+            const response = await fetch(`https://knightrecords.onrender.com/consultar/${nombreParaBuscar}`);
             const data = await response.json();
 
             if (response.ok) {
@@ -61,6 +65,7 @@ if (btnConsultar) {
             }
         } catch (error) {
             console.error("Error consulta:", error);
+            alert("❌ Error al realizar la consulta.");
         }
     });
 }
