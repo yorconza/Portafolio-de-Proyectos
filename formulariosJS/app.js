@@ -1,52 +1,66 @@
-// --- LÓGICA DE CONSULTA (consulta.html) ---
-const btnConsultar = document.getElementById("btnConsultar");
-const inputNombre = document.getElementById("nombreBusqueda");
+const formulario = document.getElementById("formulario");
 
-if (btnConsultar && inputNombre) {
-    btnConsultar.addEventListener("click", async () => {
-        const valor = inputNombre.value.toLowerCase().trim();
+if (formulario) {
+    formulario.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const generoSeleccionado = document.querySelector('input[name="genero"]:checked')?.value;
 
-        if (!valor) {
-            alert("Escribe un nombre primero");
-            return;
-        }
+        const datos = {
+            nombre: document.getElementById("nombre").value,
+            email: document.getElementById("email").value,
+            passwords: document.getElementById("passwords").value,
+            celular: document.getElementById("celular").value,
+            direccion: document.getElementById("direccion").value,
+            fecha: document.getElementById("fecha").value,
+            genero: generoSeleccionado
+        };
 
         try {
-            const response = await fetch(`http://localhost:3000/consultar/${encodeURIComponent(valor)}`);
-            const datosPersona = document.getElementById("datosPersona");
-            
+            const response = await fetch('/guardar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datos)
+            });
+            const resData = await response.json();
+            alert(response.ok ? "✅ " + resData.mensaje : "⚠️ Error: " + resData.error);
+            if (response.ok) formulario.reset();
+        } catch (error) {
+            console.error("Error registro:", error);
+        }
+    });
+}
+
+// ==========================================
+// PARTE 2: LÓGICA DE CONSULTA (consulta.html)
+// ==========================================
+const btnConsultar = document.getElementById("btnConsultar");
+if (btnConsultar) {
+    btnConsultar.addEventListener("click", async () => {
+        const inputNombre = document.getElementById("nombreBusqueda");
+        const datosPersona = document.getElementById("datosPersona");
+        const nombreParaBuscar = inputNombre.value.trim();
+
+        if (!nombreParaBuscar) return alert("⚠️ Ingresa un nombre.");
+
+        try {
+            const response = await fetch(`/consultar/${nombreParaBuscar}`);
+            const data = await response.json();
+
             if (response.ok) {
-                const data = await response.json();
-                
-                // --- AQUÍ PONEMOS EL ESTILO FACTURA ---
                 datosPersona.innerHTML = `
-                    <div class="factura-row">
-                        <div class="factura-etiqueta">Nombre del Usuario:</div>
-                        <div class="factura-value">${data.nombre}</div>
-                    </div>
-                    <div class="factura-row">
-                        <div class="factura-etiqueta">Teléfono:</div>
-                        <div class="factura-value">${data.celular}</div>
-                    </div>
-                    <div class="factura-row">
-                        <div class="factura-etiqueta">Género:</div>
-                        <div class="factura-value">${data.genero}</div>
-                    </div>
-                    <div class="factura-row">
-                        <div class="factura-etiqueta">Dirección:</div>
-                        <div class="factura-value">${data.direccion}</div>
-                    </div>
-                    <div class="factura-row">
-                        <div class="factura-etiqueta">Correo Electrónico:</div>
-                        <div class="factura-value">${data.email || 'No registrado'}</div>
-                    </div>
-                `;
+                    <div class="detalle-factura">
+                        <h3>✅ Usuario Encontrado</h3>
+                        <p><strong>Nombre:</strong> ${data.nombre}</p>
+                        <p><strong>Email:</strong> ${data.email}</p>
+                        <p><strong>Celular:</strong> ${data.celular}</p>
+                        <p><strong>Dirección:</strong> ${data.direccion}</p>
+                        <p><strong>Género:</strong> ${data.genero}</p>
+                    </div>`;
             } else {
-                datosPersona.innerHTML = `<p style="color:red; text-align:center; margin-top:20px;">⚠️ No se encontró al usuario: <b>${valor}</b></p>`;
+                datosPersona.innerHTML = `<p>❌ ${data.mensaje}</p>`;
             }
         } catch (error) {
-            console.error("Error de red:", error);
-            alert("Error al conectar con el servidor");
+            console.error("Error consulta:", error);
         }
     });
 }

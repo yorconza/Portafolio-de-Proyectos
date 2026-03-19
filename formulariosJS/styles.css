@@ -1,10 +1,10 @@
+/* --- 1. ESTILOS GLOBALES Y RESET --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 body {
     background-color: #f5f7fa;
@@ -14,9 +14,9 @@ body {
     min-height: 100vh;
 }
 
-
+/* --- 2. CABECERA Y NAVEGACIÓN --- */
 header {
-    background-color: #6c63ff; /* color suave morado */
+    background-color: #6c63ff;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -25,41 +25,140 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+nav {
+    background: #6c63ff;
+}
 
+.menu {
+    display: flex;
+    justify-content: space-around;
+    list-style: none; /* Corrección: Quita puntos del menú */
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: whitesmoke;
+    color: black;
+    box-shadow: 0 0 10px rgb(172, 155, 249);
+}
+
+/* --- 3. ASIDE CON ANIMACIÓN (CAPA FONDO) --- */
+aside {
+    background: #6f6ad8;
+    height: 60px; /* Altura fija controlada */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1; /* Capa baja para que el carrusel pase por encima */
+}
+
+.textoMovimiento {
+    position: absolute;
+    white-space: nowrap;
+    color: white;
+    font-size: larger;
+    will-change: transform;
+    animation: derecha 25s linear infinite;
+}
+
+@keyframes derecha {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+}
+
+/* --- 4. CONTENIDO PRINCIPAL (MAIN) --- */
 main {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
+    position: relative;
 }
 
+/* --- 5. CARRUSEL DE SERVICIOS (CAPA SUPERIOR) --- */
+.carousel {
+    width: 100%;
+    max-width: 850px;
+    z-index: 10; /* Mayor que el aside */
+    position: relative;
+}
 
-form {
+.service-card {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    background: #fff;
+    border-radius: 15px;
+    overflow: visible;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra para resaltar sobre el fondo */
+}
+
+.img-container {
+    width: 100%;
+    height: 350px; /* Tamaño uniforme para todas las fotos */
+    overflow: visible;
+    background-color: #eee;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast; /* Para Chrome/Safari */
+    filter: contrast(1.05) brightness(1.02);
+}
+
+.card-content {
+    padding: 25px;
+    text-align: center;
+    overflow: visible;
+}
+
+/* --- 6. CONTROLES DEL CARRUSEL --- */
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 20; /* La capa más alta para que siempre funcionen los clics */
+    width: 8%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(108, 99, 255, 0.8);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+/* --- 7. FORMULARIOS Y RESULTADOS --- */
+form, #contenedorResultado {
     background-color: white;
     padding: 30px 40px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 450px;
+    margin: 20px auto;
 }
-
-
 
 h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #6c63ff;
 }
-
-
-label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
-
 
 input[type="text"],
 input[type="email"],
@@ -71,175 +170,31 @@ input[type="date"] {
     border-radius: 8px;
     margin-bottom: 20px;
     font-size: 1rem;
-    transition: border-color 0.3s;
 }
 
-
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="date"]:focus {
+input:focus {
     border-color: #6c63ff;
     outline: none;
 }
 
-
-
-input[type="radio"] {
-    margin-right: 8px;
-}
-
-
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-
-
-button:hover {
-    background-color: #574fd6;
-}
-
-
-
+/* --- 8. FOOTER --- */
 footer {
     background-color: #6c63ff;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 25px 0;
     font-size: 0.9rem;
     margin-top: auto;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    z-index: 10;
 }
 
-
-
-nav{
-    background:  #6c63ff;;    
+footer ul {
+    list-style: none; /* Corrección: Quita puntos del footer */
+    padding: 0;
+    margin: 10px 0 0 0;
 }
 
-
-
-.menu{
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-}
-
- 
-
-.menu li{
- margin: 10px;
-}
-
-
-
-.menu a{
-
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: 0.3s;
-
-}
-
-
-
-.menu a:hover{
-
-    background: whitesmoke;
-
-    color: black;
-
-    box-shadow: 0 0 10px rgb(172, 155, 249);
-
-}
-
-
-
-aside {
-
-    background: #6f6ad8;
-    flex: 1;
-    padding: 15px 0;    
-    overflow: hidden;  
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-}
-
-
-
-.textoMovimiento {
-
-    position: absolute;
-    white-space: nowrap;
-    color: white;
-    font-size: larger;
-    will-change: transform;
-    animation: derecha 25s linear infinite;
-
-}
-
-
-
-@keyframes derecha {
-
-    0% {
-
-       
-
-        transform: translateX(100vw);
-
-    }
-
-    100% {
-
-       
-
-        transform: translateX(-100%);
-
-    }
-
-}
-
-
-
-
-
-@media (max-width: 500px) {
-
-    form {
-
-        padding: 20px;
-
-    }
-}
-
-#contenedorResultado {
-    background-color: white;
-    width: 100%;
-    max-width: 500px; 
-    margin: 20px auto; 
-    padding: 30px;
-    border-radius: 12px; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-    border: 1px solid #e0e0e0;
-}
-
-
+/* --- 9. FACTURA / LÍNEAS --- */
 .factura-titulo {
     text-align: center;
     color: #6c63ff;
@@ -250,7 +205,6 @@ aside {
     padding-bottom: 10px;
 }
 
-
 .factura-linea {
     display: flex; 
     justify-content: space-between;
@@ -259,22 +213,224 @@ aside {
 }
 
 
-.factura-linea:last-child {
-    border-bottom: none;
+@media (max-width: 600px) {
+    .img-container { height: 250px; }
+    form { padding: 20px; }
+    .service-card { max-width: 90%; }
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #6c63ff 0%, #574fd6 100%); 
+    padding: 100px 5%; 
+    color: white;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 
-.factura-etiqueta {
-    font-weight: bold; 
-    color: #555; 
-    width: 40%; 
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px; 
+    align-items: center;
+}
+
+
+.hero-content {
+    flex: 1.2; 
     text-align: left;
 }
 
+.hero-title {
+    font-size: 3.2rem; 
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: 800;
+    color: white; 
+}
 
-.factura-info {
-    color: #333; 
-    width: 60%; 
-    text-align: right; 
-    word-wrap: break-word; 
+.hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+
+.btn-hero-primary {
+    background-color: white;
+    color: #6c63ff; 
+    padding: 16px 35px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-hero-primary:hover {
+    background-color: #f8f9fa; 
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+
+.btn-hero-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 14px 35px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+    background-color: rgba(255,255,255,0.1); /* Efecto cristal */
+}
+
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.dashboard-mockup {
+    background: white;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 25px 60px rgba(74, 58, 255, 0.4); /* Sombra morada oscura */
+    transform: perspective(1000px) rotateY(-3deg) rotateX(1deg); /* Ligera rotación 3D */
+    transition: transform 0.5s ease;
+}
+
+.dashboard-mockup:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg); /* Se endereza al hover */
+}
+
+.dashboard-mockup img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    border: 1px solid #f0f0f0;
+}
+
+
+.status-badge {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: white;
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-icon {
+    color: #28a745; /* Verde para 'Activo' */
+}
+
+/* --- RESPONSIVE OPTIMIZADO --- */
+@media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-title {
+        font-size: 2.6rem;
+    }
+    .dashboard-mockup {
+        transform: none; /* Quitamos rotación en móvil */
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-buttons {
+        flex-direction: column; /* Botones uno encima de otro */
+        gap: 10px;
+    }
+    .hero-section {
+        padding: 60px 5%;
+    }
+}
+
+
+button, 
+input[type="submit"], 
+input[type="button-btn"], 
+input[type="button"] {
+    background-color: #6c63ff; /* El morado de tu marca */
+    color: white;              /* Texto blanco */
+    border: none;              /* Quita el borde gris feo */
+    padding: 10px 25px;        /* Les da tamaño */
+    border-radius: 8px;        /* Bordes redondeados modernos */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(108, 99, 255, 0.2);
+}
+
+/********************************************************************/
+
+.btn-volver {
+    display: inline-block;
+    background-color: #6c63ff; /* Morado del aside */
+    color: white !important;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.btn-volver:hover {
+    background-color: #5a52ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Alineación en la caja de búsqueda */
+.caja-busqueda {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }

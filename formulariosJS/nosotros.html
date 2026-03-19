@@ -6,21 +6,94 @@
     <link rel="icon" type="image/x-icon" href="img/icons.png">
     <link rel="stylesheet" href="styles.css">
     <title>Nosotros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
         Nosotros
     </header>
-
     <nav>
         <ul class="menu">
+            <li><a href="inicio.html">Inicio</a></li>
             <li><a href="page.html">Registro de usuarios</a></li>
             <li><a href="consulta.html">Consulta Formulario</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
         </ul>
     </nav>
 
+    <main>
+        <section class="servicios-carrusel py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Nuestros Servicios</h2>
+                
+                <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        
+                        <div class="carousel-item active">
+                            <article class="service-card">
+                                <div class="img-container">
+                                    <img src="img/ciudad.jpg" alt="Asesoría y venta">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Gestión Segura de Identidades Empresariales</h3>
+                                    <p>Proteja la información más valiosa de su organización mediante un sistema de registro robusto. Implementamos protocolos que garantizan que cada acceso esté debidamente autorizado, minimizando vulnerabilidades y fortaleciendo la seguridad interna.</p>
+                                </div>
+                            </article>
+                        </div>
 
+                        <div class="carousel-item">
+                            <article class="service-card">
+                                <div class="img-container">
+                                    <img src="img/PM.jpg" alt="Reparación">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Optimización y Registro de Colaboradores</h3>
+                                    <p>Agilice la integración de su equipo con plataformas de registro automatizadas. Nuestro sistema permite una gestión fluida de perfiles empresariales, facilitando que cada usuario cuente con las herramientas y permisos necesarios desde el primer instante.</p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="carousel-item">
+                            <article class="service-card">
+                                <div class="img-container">
+                                    <img src="img/Project_Manager.webp" alt="Soporte OS">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Trazabilidad y Control de Datos Críticos</h3>
+                                    <p>Mantenga un historial preciso y detallado de cada movimiento dentro de su infraestructura. Un registro de usuarios profesional permite auditar acciones en tiempo real, asegurando el cumplimiento de las normativas de protección de datos vigentes.</p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="carousel-item">
+                            <article class="service-card">
+                                <div class="img-container">
+                                    <img src="img/PM2.jpg" alt="Respaldo">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Arquitectura de Datos para el Crecimiento</h3>
+                                    <p>Prepare su empresa para el siguiente nivel con una base de datos de usuarios escalable. Diseñamos estructuras de registro que crecen junto a su negocio, permitiendo una administración sencilla de miles de perfiles sin perder el rendimiento.</p>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            <div>
+                <a href="inicio.html" class="btn-volver">Volver al inicio</a>
+            </div>
+            </div>
+        </section>
+    </main>
 
 
 
@@ -29,7 +102,7 @@
 
     <footer>
         &copy; 2026 Knight Corporation. Todos los derechos reservados.
-        <br><br>
+                <br><br>
         <ul>
             <h4>Contáctanos</h4>
             <li>Instagram: knight__IG2000</li>
@@ -37,6 +110,6 @@
             <li>Facebook: Formularios Knight</li>
         </ul>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

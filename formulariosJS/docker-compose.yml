@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # Tu API de Knight Records
+  node-app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql-db
+    environment:
+      - DB_HOST=mysql-db # Nombre del servicio abajo
+
+  # Tu Base de Datos MySQL
+  mysql-db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=formulario
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Para que cree la tabla solo
