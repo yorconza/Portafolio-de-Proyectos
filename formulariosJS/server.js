@@ -12,17 +12,17 @@ app.use(express.json());
 // Servir archivos estáticos (HTML, CSS, JS) desde la carpeta actual
 app.use(express.static(__dirname));
 
-// --- CONFIGURACIÓN DE LA BASE DE DATOS (Variables de Entorno) ---
+// --- CONFIGURACIÓN DE LA BASE DE DATOS ---
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT || 19495,
+    port: process.env.DB_PORT || 19495, // Usa el puerto de Aiven
     ssl: { rejectUnauthorized: false } 
 });
 
-// --- AUTO-CREACIÓN DE TABLA (Se ejecuta al iniciar el servidor) ---
+// --- AUTO-CREACIÓN DE TABLA ---
 const sqlCreateTable = `
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -44,9 +44,10 @@ db.query(sqlCreateTable, (err) => {
     }
 });
 
-// --- RUTA: Página Principal ---
+// --- RUTA: Página Principal (AQUÍ ESTÁ EL CAMBIO) ---
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'inicio.html'));
+    // Cambiado de 'inicio.html' a 'index.html' para que coincida con tu repo
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // --- RUTA: Guardar Usuario (POST) ---
