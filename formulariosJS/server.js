@@ -53,7 +53,9 @@ app.get("/consultar/:nombre", (req, res) => {
 });
 
 // Escuchar en 0.0.0.0 es clave para Docker
-const PORT = 3000;
+// Cambia esto al final de tu server.js
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 Servidor Knight Records activo en http://localhost:${PORT}`);
+    console.log(`🚀 Servidor en puerto ${PORT}`);
 });
