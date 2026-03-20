@@ -437,26 +437,58 @@ input[type="button"] {
 
 
 @media (max-width: 768px) {
+    /* 1. Menú: Apilado para que no se amontone */
     .menu {
-        flex-direction: column; /* Apila el menú en vertical */
-        gap: 10px;
+        flex-direction: column; 
+        gap: 15px;
+        padding: 10px 0;
     }
 
-    .hero-container {
-        flex-direction: column;
+    .menu a {
+        width: 90%; /* Área de clic más ancha */
         text-align: center;
     }
 
+    /* 2. Formulario: ¡Aquí está el truco! */
+    form, #contenedorResultado {
+        width: 95% !important;    /* Ocupa casi todo el ancho de la pantalla */
+        max-width: 100%;          /* Quita el límite de 450px */
+        padding: 20px 15px;       /* Ajusta el espacio interno */
+        margin: 10px auto;        /* Lo separa un poco del header */
+    }
+
+    /* 3. Inputs: Más fáciles de tocar */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"] {
+        font-size: 16px;          /* Evita el zoom automático en iPhone */
+        padding: 12px;
+    }
+
+    /* 4. Hero y Mockup */
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .hero-buttons {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-hero-primary, .btn-hero-secondary, .btn-volver {
+        width: 100%;              /* Botones de ancho completo en móvil */
+        text-align: center;
     }
 
     .dashboard-mockup {
-        transform: none; /* Quita el 3D en móvil para evitar errores de ancho */
+        transform: none; 
         max-width: 100%;
     }
 
