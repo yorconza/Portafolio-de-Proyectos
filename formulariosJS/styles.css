@@ -437,53 +437,53 @@ input[type="button"] {
 
 
 @media (max-width: 768px) {
-    /* 1. Menú: Apilado para que no se amontone */
+    /* --- MENÚ --- */
     .menu {
         flex-direction: column; 
         gap: 15px;
-        padding: 10px 0;
+        padding: 15px 0;
     }
 
     .menu a {
-        width: 90%; /* Área de clic más ancha */
+        display: block;
+        width: 100%;
         text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Recuadro visible en móvil */
     }
 
-    /* 2. Formulario: ¡Aquí está el truco! */
+    /* --- FORMULARIOS (LA CORRECCIÓN QUE BUSCAS) --- */
     form, #contenedorResultado {
-        width: 95% !important;    /* Ocupa casi todo el ancho de la pantalla */
-        max-width: 100%;          /* Quita el límite de 450px */
-        padding: 20px 15px;       /* Ajusta el espacio interno */
-        margin: 10px auto;        /* Lo separa un poco del header */
+        width: 95% !important;    /* Obliga a expandirse */
+        max-width: 100%;          /* Rompe el límite de los 450px */
+        padding: 25px 15px;       /* Ajusta el espacio interno */
+        margin: 20px auto;        /* Lo centra y separa del resto */
     }
 
-    /* 3. Inputs: Más fáciles de tocar */
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="date"] {
-        font-size: 16px;          /* Evita el zoom automático en iPhone */
-        padding: 12px;
+    /* Evita que el teclado del móvil tape los campos o haga zoom raro */
+    input {
+        font-size: 16px !important; 
+        height: 45px;
     }
 
-    /* 4. Hero y Mockup */
+    /* --- HERO Y CONTENIDO --- */
     .hero-container {
         flex-direction: column;
         text-align: center;
-        gap: 30px;
+        gap: 40px;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.1rem;
     }
 
     .hero-buttons {
         flex-direction: column;
         width: 100%;
+        gap: 10px;
     }
 
-    .btn-hero-primary, .btn-hero-secondary, .btn-volver {
-        width: 100%;              /* Botones de ancho completo en móvil */
+    .btn-hero-primary, .btn-hero-secondary, .btn-volver, button {
+        width: 100%;              /* Botones grandes, fáciles de tocar */
         text-align: center;
     }
 
