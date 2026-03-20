@@ -16,7 +16,7 @@ if (formulario) {
         };
 
         try {
-            // --- CAMBIO AQUÍ: Usamos la URL completa de Render para guardar ---
+            
             const response = await fetch('https://knightrecords.onrender.com/guardar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
