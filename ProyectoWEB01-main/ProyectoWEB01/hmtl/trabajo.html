@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehículos de Trabajo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="shortcut icon" href="../img/llanta.webp" type="image/x-icon">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-link" id="nos"><span class="fy">FY</span> Motors</a>
+        
+       
+        <input type="checkbox" id="controlMenu">
+        <label for="controlMenu" class="botonMenu">☰</label>
+
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    VEHÍCULOS
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="sedan.html">Sedanes</a></li>
+                    <li><a class="dropdown-item" href="suv.html">Suv's</a></li>
+                    <li><a class="dropdown-item" href="pickups.html">Pickups</a></li>
+                    <li><a class="dropdown-item" href="trabajo.html">Trabajo</a></li>
+                </ul>
+            </li>
+
+            <li><a href="financiamiento.html">FINANCIAMIENTO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><button id="modoOscuroBtn" class="btn-modo">🌙</button></li>
+        </ul>
+
+        <script src="../js/modoOscuro.js"></script>
+
+    </nav>
+
+    <br>
+
+    <h2 style="text-align: center;" id="subtitulos">VEHÍCULOS DE TRABAJO</h2>
+
+    <div class="layout-filtros">
+        <div class="filtros-container">
+            <h5>Ordenar por</h5>
+
+            <label><input type="radio" name="orden" value="original" checked> Original</label>
+            <label><input type="radio" name="orden" value="nombre-az"> Nombre A → Z</label>
+            <label><input type="radio" name="orden" value="nombre-za"> Nombre Z → A</label>
+            <label><input type="radio" name="orden" value="precio-asc"> Precio ↑</label>
+            <label><input type="radio" name="orden" value="precio-desc"> Precio ↓</label>
+
+            <h5>Ordenar por marca</h5>
+            <div id="filtroMarcas"></div>
+        </div>
+
+        <div class="cards-centro">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/coaster.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Toyota Coaster</h5>
+                                <p>Amplio y confiable, ideal para transporte de pasajeros, con gran capacidad, durabilidad y comodidad en trayectos largos.</p>
+                                <p class="fw-bold">₡52.514.800</p>
+                                <a href="https://www.toyotacr.com/autos/coaster" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/express.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Chevrolet Express</h5>
+                                <p>Resistente y versátil, perfecta para carga o pasajeros, con buen espacio interior y desempeño confiable para trabajo diario.</p>
+                                <p class="fw-bold">₡21.736.000</p>
+                                <a href="https://www.chevrolet.com/commercial/previous-year/express/vans" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/majesty.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Toyota Majesty</h5>
+                                <p>Elegante y espaciosa, ofrece alto nivel de confort, acabados premium y un manejo suave ideal para transporte ejecutivo.</p>
+                                <p class="fw-bold">₡44.298.800</p>
+                                <a href="https://www.toyotacr.com/autos/majesty" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/n400.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Chevrolet N400</h5>
+                                <p>Compacta y eficiente, ideal para negocios urbanos, con bajo consumo, fácil manejo y buen espacio para carga ligera.</p>
+                                <p class="fw-bold">₡11.700.000</p>
+                                <a href="https://chevroletcr.com/n400-cargo" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/npr.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Isuzu NPR</h5>
+                                <p>Robusto y duradero, diseñado para carga pesada, con gran capacidad, confiabilidad mecánica y excelente rendimiento laboral.</p>
+                                <p class="fw-bold">₡25.428.000</p>
+                                <a href="https://isuzucr.com/camiones/serie-reward/np?selected=47428/" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/nv200.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Nissan NV200</h5>
+                                <p>Compacta y práctica, perfecta para ciudad, con buen consumo, fácil manejo y espacio funcional para entregas o servicios.</p>
+                                <p class="fw-bold">₡7.684.560</p>
+                                <a href="https://www3.nissan.co.jp/vehicles/new/nv200vanette.html?_gl=1*kicy0z*_gcl_au*MjI1NjMwMjgyLjE3NzQ1Nzk0NTQ." target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/rampromaster.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">RAM Promaster</h5>
+                                <p>Amplia y funcional, ideal para carga, con gran espacio interior, acceso práctico y buen desempeño para trabajo constante.</p>
+                                <p class="fw-bold">₡22.934.600</p>
+                                <a href="https://www.ramtrucks.com/ram-promaster.html" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/mercedes.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Mercedes - Benz Sprinter</h5>
+                                <p>Premium y versátil, ofrece gran capacidad, tecnología avanzada y comodidad superior para transporte o carga profesional.</p>
+                                <p class="fw-bold">₡33.685.600</p>
+                                <a href="https://www.mbvans.com/en/sprinter" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <img src="../img/trabajo/transit.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Ford Transit</h5>
+                                <p>Flexible y confiable, ideal para carga o pasajeros, con buen espacio, tecnología útil y desempeño eficiente diario.</p>
+                                <p class="fw-bold">₡25.168.000</p>
+                                <a href="https://www.fordpro.com/en-us/fleet-vehicles/transit/?gnav=header-commercial" target="_blank" class="btn btn-primary btn-sm">Más Información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/orden.js"></script>
+
+    <br>
+    
+    <br>
+    <a href="#nos" class="anclaCentral">Volver al inicio</a>
+
+    <footer class="main-footer">
+        <div class="contenedorFooter">
+            <div class="logoFooter">
+                <a href="#nos"><img src="../img/logo.png" alt="FY Motors" class="logo-img"></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Línea Ética</a>
+                <a href="#">Reglamento</a>
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Cookies</a>
+                <a href="#">Mapa del Sitio</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://web.whatsapp.com/" aria-label="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            </div>
+
+            <div class="footer_copy">
+                &copy; 2026 FY Motors - Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

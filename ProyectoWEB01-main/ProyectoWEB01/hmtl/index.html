@@ -1,0 +1,346 @@
+ <!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FY Motors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="shortcut icon" href="../img/llanta.webp" type="image/x-icon">
+
+</head>
+
+
+
+<body>
+    <nav>
+        <a href="index.html" class="logo-link" id="page"><span class="fy">FY</span> Motors</a>
+        <input type="checkbox" id="controlMenu">
+        <label for="controlMenu" class="botonMenu">☰</label>
+
+
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    VEHÍCULOS </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="sedan.html">Sedanes</a></li>
+                    <li><a class="dropdown-item" href="suv.html">Suv's</a></li>
+                    <li><a class="dropdown-item" href="pickups.html">Pickups</a></li>
+                    <li><a class="dropdown-item" href="trabajo.html">Trabajo</a></li>
+                </ul>
+            </li>
+
+             <li><a href="financiamiento.html">FINANCIAMIENTO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><button id="modoOscuroBtn" class="btn-modo">🌙</button></li>
+        </ul>
+
+        <script src="../js/modoOscuro.js"></script>
+    </nav>
+
+    <!--animación-->
+    <aside class="animation">
+        <div class="textoMovimiento">
+            <span>Contamos con taller especializado, repuestera completa y garantías que respaldan cada vehículo que adquirís.</span>
+            —
+            <span>Unete a la familia FY Motors, donde tu satisfacción y seguridad son nuestra prioridad.</span>
+            —
+            <span>Bienvenid@s a FY Motors, tu concesionario de confianza con la mayor variedad de vehículos de la región.</span>
+            
+        </div>     
+    </aside>
+    <!---->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../img/inicio/mercedes3.jpg" class="d-block w-100" alt="mercedes">
+            </div>
+
+            <div class="carousel-item">
+                <img src="../img/inicio/everest-convertido-a-940x400.jpeg" class="d-block w-100" alt="Everest">
+            </div>
+
+            <div class="carousel-item">
+                <img src="../img/inicio/hilux-940x450-convertido-a-940x400.jpeg" class="d-block w-100" alt="Tacoma">
+            </div>
+
+            <div class="carousel-item">
+                <img src="../img/inicio/hino.webp" class="d-block w-100" alt="Hino">
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    <br>
+
+    <!--catalogo de videos-->
+    <h1 class="videoInfo">Nuestros mejores automotores</h1>
+    <br> 
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+                
+                <div class="col">   
+                    <div class="card">
+                        <div class="ratio ratio-16x9">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/IMOJR6GHOvk?si=KJfXmJ10oPxf5Jwi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Toyota 4runner 2026</h5>
+                            <p class="card-text">Análisis de nuestro nuevo producto desde Japón</p>
+                            <p class="card-text">Versión TRD</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col">
+                    <div class="card">
+                        <div class="ratio ratio-16x9">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/alyp8lui7wY?si=0jHd2Vi4nGXT8tw6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ford F-150</h5>
+                            <p class="card-text">Excelente performance para el trabajo.</p>
+                            <p class="card-text">Disponibles en 4x4 y en 4x2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="col">
+                    <div class="card">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/Aa4_mjZyaGs" title="Ford Mustan 1970" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ford Mustan 1970 Review</h5>
+                            <p class="card-text">Análisis técnico de este moustro americano.</p>
+                            <p class="card-text">Disponible en nuestras sucursales</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>   
+     <br><br><br><br>
+
+    <h2 class="videoInfo">Servicios</h2>
+    <br>
+    <!--Acordion-->
+    <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Compra de vehículos
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>Encuentre el compañero de ruta ideal con el respaldo de expertos.</strong> 
+                        Ofrecemos un catálogo curado de vehículos que superan estrictos controles de calidad y revisiones mecánicas completas. En <strong>FY Motors</strong> garantizamos una transferencia de propiedad ágil, transparente y con total seguridad legal para su tranquilidad.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Cálculo de financiamientos de automotores
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>Soluciones crediticias a la medida de su presupuesto mensual.</strong> 
+                        Ponemos a su disposición asesoría personalizada para calcular planes de financiamiento flexibles. Trabajamos con las principales entidades para ofrecerle <strong>tasas competitivas y primas ajustables</strong> que le permitan estrenar su próximo auto sin complicaciones.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Atención a nuestros clientes
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>Un servicio integral que no termina con la entrega de las llaves.</strong> 
+                        Nuestro equipo de soporte técnico y asesores comerciales están listos para resolver sus dudas sobre mantenimiento y garantías. Garantizamos una comunicación directa y un acompañamiento constante para asegurar que su experiencia en <strong>FY Motors</strong> sea impecable.
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <br><br>
+    <!--banners-->
+
+    <h3 class="banners">Más sobre nuestros servicos</h3><br>
+    <!--taller-->
+    <div class="banner-servicios">
+        <div class="banner-img">
+            <img src="../img/inicio/mecanico2.webp" alt="Taller FY Motors">
+        </div>
+
+        <div class="banner-info">
+            <div class="logo-taller">
+                <span class="nombre-empresa">FY</span>
+                <span class="nombre-servicio">TALLER</span>
+            </div>
+            <div class="separador"></div>
+            <div class="texto-banner">
+                <h2>AGENDA TU CITA</h2>
+               <p>Llama al 9999-9999 para más información.</p>
+            </div>
+            <a href="#page" class="volver-inicio">Volver al inicio</a>
+        </div>
+
+
+    </div>
+    <!--taller-->
+    
+    <br><br>
+    <!--Repuestos-->
+    <div class="banner-servicios">
+        <div class="banner-img">
+            <img src="../img/inicio/repuestos.jpg" alt="Taller FY Motors">
+        </div>
+
+        <div class="banner-info">
+            <div class="logo-taller">
+                <span class="nombre-empresa">FY</span>
+                <span class="nombre-servicio">RESPUESTOS</span>
+            </div>
+            <div class="separador"></div>
+            <div class="texto-banner">
+               <p>Con la factura de la compra en FY Motors, pueden obtener un 45% en todo repuesto de los autos disponibles en nuestras sucursales.</p>
+            </div>
+            <a href="#page" class="volver-inicio">Volver al inicio</a>
+        </div>
+    </div>
+
+    <!--Garantías-->
+    <br><br>
+    <div class="banner-servicios">
+        <div class="banner-img">
+            <img src="../img/inicio/garantía.jpg" alt="Taller FY Motors">
+        </div>
+
+        <div class="banner-info">
+            <div class="logo-taller">
+                <span class="nombre-empresa">FY</span>
+                <span class="nombre-servicio">GARANTÍAS</span>
+            </div>
+            <div class="separador"></div>
+            <div class="texto-banner">
+                <h2>CONSULTA SOBRE GARANTÍAS</h2>
+               <p>Hacemos cambios de vehículos por choque, 5 años de uso o a los 150.000 km.</p>
+            </div>
+            <a href="#page" class="volver-inicio">Volver al inicio</a>
+            
+        </div>
+
+
+    </div><br><br><br>
+
+    <!--Reseñas-->
+
+    <h1 class="videoInfo">Nuestros Clientes</h1>
+    <br> 
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+
+            <div class="col">
+                <div class="card">
+                    <img src="../img/inicio/cliente1.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Vehículo: Ford F-150 2022</h5>
+                        <p> Excelente atención desde el primer momento. Me explicaron todo el proceso claramente y mi F-150 quedó funcionando perfectamente. Muy recomendados. <strong>Atte: James Alexander</strong></p>
+                        <p>Calificación: ⭐⭐⭐⭐⭐</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="../img/inicio/cliente2.webp" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Vehículo: Toyota Camry 2024</h5>
+                        <p>Compre mi Camry aquí, después lo traje para un servicio completo y quedé muy satisfecho. El equipo fue profesional, rápido y el precio fue muy justo. Sin duda vuelvo. <strong>Atte: Kenyi Nakamura</strong></p>
+                        <p>Calificación: ⭐⭐⭐⭐</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="../img/inicio/cliente3.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Vehículo: Toyota Coaster</h5>
+                        <p>Muy buena, por algo es toyota, ofrece buen performance ideal para mi trabajo que es en transporte de turistas, muy buena atención al cliente de parte de FY Motors <strong>Atte: Austin Santos</strong></p>
+                        <p>Calificación: ⭐⭐⭐⭐⭐</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <a href="#page" class="anclaCentral">Volver al inicio</a>
+
+    <footer class="main-footer">
+        <div class="contenedorFooter">
+            <div class="logoFooter">
+                <a href="#page"><img src="../img/logo.png" alt="FY Motors" class="logo-img"></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Línea Ética</a>
+                <a href="#">Reglamento</a>
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Cookies</a>
+                <a href="#">Mapa del Sitio</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://web.whatsapp.com/" aria-label="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            </div>
+
+            <div class="footer_copy">
+                &copy; 2026 FY Motors - Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

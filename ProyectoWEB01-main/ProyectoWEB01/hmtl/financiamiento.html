@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financiamiento</title>
+    <!-- CSS de Bootstrap solo para utilidades de dropdown -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="shortcut icon" href="../img/llanta.webp" type="image/x-icon">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-link" id="princ"><span class="fy">FY</span> Motors</a>
+        
+        <!-- Tu lógica de menú hamburguesa manual -->
+        <input type="checkbox" id="controlMenu">
+        <label for="controlMenu" class="botonMenu">☰</label>
+
+        <ul class="menu">
+            <li><a href="index.html">INICIO</a></li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    VEHÍCULOS
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="sedan.html">Sedanes</a></li>
+                    <li><a class="dropdown-item" href="suv.html">Suv's</a></li>
+                    <li><a class="dropdown-item" href="pickups.html">Pickups</a></li>
+                    <li><a class="dropdown-item" href="trabajo.html">Trabajo</a></li>
+                </ul>
+            </li>
+
+            <li><a href="financiamiento.html">FINANCIAMIENTO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><button id="modoOscuroBtn" class="btn-modo">🌙</button></li>
+        </ul>
+
+        <script src="../js/modoOscuro.js"></script>
+    </nav>
+
+    <main>
+        
+       <aside class="containerFactura">
+            <div class="main-container">
+                <h1>Calculadora de financiamiento</h1>
+            
+                <div id="calculadoraJS">
+                    <div class="campo">
+                        <label>Modelo del Auto:</label>
+                        <select name="idModeloAuto" id="idModeloAuto">
+                            <optgroup label="Sedanes">
+                                    <option value="Honda Accord">Honda Accord</option>
+                                    <option value="Toyota Camry">Toyota Camry</option>
+                                    <option value="Honda Civic">Honda Civic</option>
+                                    <option value="Nissan Altima">Nissan Altima</option>
+                                    <option value="Volkswagen Jetta">Volkswagen Jetta</option>
+                                    <option value="Kia K5">Kia K5</option>
+                                    <option value="Ford Legacy">Ford Legacy</option>
+                                    <option value="Mazda 3">Mazda 3</option>
+                                    <option value="Lexus Es">Lexus ES</option>
+                            </optgroup>
+
+                            <optgroup label="SUVs">
+                                    <option value="Honda CRV">Honda CRV</option>
+                                    <option value="Mazda CX-5">Mazda CX-5</option>
+                                    <option value="Chevrolet Equinox">Chevrolet Equinox</option>
+                                    <option value="Ford Explorer">Ford Explorer</option>
+                                    <option value="Subaru Forester">Subaru Forester</option>
+                                    <option value="Toyota RAV4">Toyota RAV4</option>
+                                    <option value="Nissan Rogue">Nissan Rogue</option>
+                                    <option value="Kia Sportage">Kia Sportage</option>
+                                    <option value="Hyundai Tucson">Hyundai Tucson</option>
+                            </optgroup>
+
+                            <optgroup label="Pick-Ups">
+                                    <option value="Chevrolet Colorado">Chevrolet Colorado</option>
+                                    <option value="Ford F-150">Ford F-150</option>
+                                    <option value="Nissan Frontier">Nissan Frontier</option>
+                                    <option value="Toyota Hilux">Toyota Hilux</option>
+                                    <option value="Toyota Tacoma">Toyota Tacoma</option>
+                                    <option value="RAM 1500">RAM 1500</option>
+                                    <option value="Ford Ranger">Ford Ranger</option>
+                                    <option value="GMC Sierra 1500">GMC Sierra 1500</option>
+                                    <option value="Chevrolet Silverado">Chevrolet Silverado</option>
+                            </optgroup>
+
+                            <optgroup label="Trabajo">
+                                    <option value="Toyota Coaster">Toyota Coaster</option>
+                                    <option value="Chevrolet Express">Chevrolet Express</option>
+                                    <option value="Toyota Majesty">Toyota Majesty</option>
+                                    <option value="Chevrolet N400">Chevrolet N400</option>
+                                    <option value="Isuzu NPR">Isuzu NPR</option>
+                                    <option value="Nissan NV200">Nissan NV200</option>
+                                    <option value="RAM Promaster">RAM Promaster</option>
+                                    <option value="Mercedez-Benz Sprinter">Mercedez-Benz Sprinter</option>
+                                    <option value="Ford Transit">Ford Transit</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Precio Total (₡):</label>
+                        <input type="text" id="idPrecioAuto" placeholder="Ej: 15.000.000">
+                    </div>
+
+                    <div class="campo">
+                        <label>Prima / Pago Inicial (₡):</label>
+                        <input type="text" id="idPrimaAuto" placeholder="Ej: 3.000.000">
+                    </div>
+
+                    <div class="campo">
+                        <label>Tasa de Interés Anual: <span id="idTasaTexto">15</span>%</label>
+                        <input type="range" id="idInteresRange" min="10" max="30" value="15">
+                    </div>
+
+                    <div class="campo">
+                        <label>Plazo (Meses):</label>
+                        <select id="idPlazoMeses">
+                            <option value="12">12 meses</option>
+                            <option value="24">24 meses</option>
+                            <option value="48" selected>48 meses</option>
+                            <option value="60">60 meses</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="BtnCalcular">Generar Factura</button>
+
+                </div>
+            </div>
+        </aside>
+
+
+        <section class="containerData">
+
+            <div id="ContenedorFactura">
+              <div class="factura_card">
+                    <h3 class="couta">RESUMEN DE CUOTA</h3>
+                
+                    <table class="tablaFactura">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Detalle del Financiamiento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Vehículo:</b></td>
+                                <td id="newModel">---</td>
+                            </tr>
+                            <tr>
+                                <td><b>Monto a Financiar:</b></td>
+                                <td id="NewMontoFinanciar">₡0.00</td>
+                            </tr>
+                            <tr>
+                                <td><b>Tasa Aplicada:</b></td>
+                                <td id="newTasa">0%</td>
+                            </tr>
+                            <tr class="fila-total">
+                                <td><b>CUOTA MENSUAL:</b></td>
+                                <td id="newCuotaFinal">₡0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="nota">* Este cálculo es una aproximación al pago del vehículo basada en la tasa de interés seleccionada.</p>
+             </div>
+           </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="contenedorFooter">
+            <div class="logoFooter">
+                <a href="#princ"><img src="../img/logo.png" alt="FY Motors" class="logo-img"></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Línea Ética</a>
+                <a href="#">Reglamento</a>
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Cookies</a>
+                <a href="#">Mapa del Sitio</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://web.whatsapp.com/" aria-label="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            </div>
+
+            <div class="footer_copy">
+                &copy; 2026 FY Motors - Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="../js/finanzas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>

@@ -1,0 +1,1138 @@
+/* =========================================
+   1. RESET Y BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(55, 81%, 94%);
+}
+
+/* =========================================
+   2. MENÚ
+   ========================================= */
+nav {
+    background: #002366;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 80px;
+    position: relative;
+}
+
+#subtitulos {
+    text-align: center;
+    font-weight: bold;
+    color: #002366;
+}
+
+.logo-link {
+    font-size: 30px;
+    font-weight: 800;
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+#controlMenu {
+    display: none;
+}
+
+.botonMenu {
+    display: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.dropdown-toggle,
+.dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle:active,
+.dropdown-toggle.show {
+    background-color: transparent;
+    color: whitesmoke;
+    box-shadow: none;
+    border: none;
+}
+
+.dropdown-menu {
+    background-color: #002366;
+}
+
+.dropdown-item {
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: #002366;
+    color: white;
+}
+
+.dropdown-item:active {
+    background-color: #001a4d;
+    color: white;
+}
+
+/* =========================================
+   2.1 MENÚ-OSCURO
+   ========================================= */
+.btn-modo {
+    background: transparent;
+    border: none;
+    color: whitesmoke;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-family: inherit;
+}
+
+.btn-modo:hover {
+    color: rgb(255, 0, 0);
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+.dark-mode header {
+    background-color: #081726;
+    color: white;
+}
+
+.dark-mode nav {
+    background: #00153d;
+}
+
+.dark-mode .card,
+.dark-mode .filtros-container,
+.dark-mode #formContacto,
+.dark-mode aside.containerFactura,
+.dark-mode section.containerData,
+.dark-mode article {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.dark-mode .card-title,
+.dark-mode article h3,
+.dark-mode .filtros-container h5,
+.dark-mode #formContacto label {
+    color: rgb(255, 0, 0);
+}
+
+.dark-mode .main-footer {
+    background-color: #181818;
+    border-top: 1px solid #333;
+}
+
+.dark-mode .footer-links a,
+.dark-mode .footer_copy {
+    color: #f5f5f5;
+}
+
+.dark-mode .tablaFactura td:last-child {
+    background-color: #222;
+    color: #f5f5f5;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* =========================================
+   3. HEADER
+   ========================================= */
+header {
+    background-color: #0a2540;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* =========================================
+   4. MAIN Y LAYOUTS
+   ========================================= */
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.layout-filtros {
+    display: grid;
+    grid-template-columns: 220px 1fr 200px;
+    gap: 30px;
+    align-items: start;
+    padding: 20px;
+}
+
+/* =========================================
+   5. FILTROS
+   ========================================= */
+.filtros-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: fit-content;
+}
+
+.filtros-container h5 {
+    margin-bottom: 10px;
+    color: #002366;
+}
+
+.filtros-container label {
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.filtros-container input {
+    accent-color: #002366;
+}
+
+.cards-centro {
+    width: 100%;
+}
+
+.cards-centro .container {
+    max-width: 1400px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cards-centro .row {
+    justify-content: center;
+}
+
+/* =========================================
+   6. CARDS Y CARRUSEL
+   ========================================= */
+.card-img-top {
+    height: 300px;
+    object-fit: contain;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background-color: azure;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.carousel {
+    width: 100%;
+    max-width: 940px;
+    margin: 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+}
+
+/* =========================================
+   7. SECCIÓN ABOUT US / NOSOTROS
+   ========================================= */
+.aboutUS {
+    background-color: #002366;
+    padding: 30px;
+    flex: 3;
+    border-radius: 10px;
+}
+
+.aboutUS h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.contenedor-nosotros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+article {
+    background: hsl(54, 77%, 95%);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+article h3 {
+    margin-bottom: 10px;
+    color: #002366;
+}
+
+/* =========================================
+   8. CONTENEDOR PRINCIPAL (TRÍPTICO)
+   ========================================= */
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 350px 1fr 350px;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.video-lateral {
+    width: 100%;
+}
+
+.videoInfo {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(255, 0, 0);
+}
+
+/* =========================================
+   9. BANNER SERVICIOS
+   ========================================= */
+.banner-servicios {
+    display: flex;
+    width: 100%;
+    max-width: 940px;
+    height: auto;
+    min-height: 180px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    flex-wrap: wrap;
+}
+
+.banner-img {
+    flex: 1 1 200px;
+    min-height: 160px;
+}
+
+.banner-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.banner-info {
+    flex: 2 1 260px;
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    position: relative;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.logo-taller {
+    font-weight: bold;
+    font-size: 24px;
+    color: #cc0000;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.separador {
+    width: 1px;
+    height: 80px;
+    background-color: #ccc;
+    margin: 0 30px;
+    flex-shrink: 0;
+}
+
+.texto-banner {
+    flex: 1 1 140px;
+    min-width: 120px;
+}
+
+.texto-banner h3 {
+    font-size: 15px;
+    margin: 0 0 4px;
+    color: #333;
+}
+
+.texto-banner h2 {
+    font-size: 28px;
+    margin: 5px 0;
+    color: #002366;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.btn-ver-mas:hover {
+    color: #002366;
+}
+
+.banners {
+    text-align: center;
+    color: #002366;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* =========================================
+   10. CALCULADORA / FACTURA
+   ========================================= */
+/* El Aside (Calculadora) */
+aside.containerFactura {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* La Sección de la Tabla */
+section.containerData {
+    flex: 1.5;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nota {
+    padding: 12px 15px;
+    color: gray;
+    text-align: center;
+}
+
+.tablaFactura {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #002366;
+}
+
+.tablaFactura td {
+    border: black solid;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.tablaFactura td:first-child {
+    background-color: #002366;
+    color: white;
+    font-weight: lighter;
+    width: 40%;
+}
+
+.tablaFactura td:last-child {
+    background-color: #ffffff;
+    color: #002366;
+    text-align: right;
+}
+
+.fila-total td {
+    background-color: #002366;
+    color: white;
+}
+
+.tablaFactura tr {
+    border: black solid;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.couta {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.main-container h1 {
+    font-size: 35px;
+    font-style: italic;
+    gap: 20px;
+}
+
+aside.factura_card {
+    color: white;
+    font-weight: lighter;
+    width: 40%;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: #06dd55;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -1px;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+#BtnCalcular {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #d60606;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+#BtnCalcular:hover {
+    background-color: #f46f6f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+#BtnCalcular:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.campo select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+/* =========================================
+   11. CONTACTO Y MAPA
+   ========================================= */
+.contenedor-contacto {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+#formContacto {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    border-top: 5px solid #002366;
+    flex: 0 1 400px;
+}
+
+#formContacto input,
+#formContacto textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#mapaCostaRica {
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex: 0 1 600px;
+}
+
+#mapaCostaRica img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#formContacto label {
+    display: block;
+    font-weight: bold;
+    color: #002366;
+    margin-bottom: 8px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+#formContacto input[type="text"],
+#formContacto input[type="email"],
+#formContacto textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fafafa;
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+#formContacto input:focus,
+#formContacto textarea:focus {
+    border-color: #002366;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 35, 102, 0.2);
+    outline: none;
+}
+
+#formContacto .terminos-container {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#formContacto label[for="aceptoTerminos"] {
+    display: inline;
+    font-size: 14px;
+    font-weight: normal;
+    color: #444;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#btnEnviar {
+    width: 100%;
+    padding: 15px;
+    background-color: #d60606;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#btnEnviar:hover {
+    background-color: #f46f6f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+#btnEnviar:active {
+    transform: translateY(0);
+}
+
+.error-text {
+    color: #d60606;
+    font-size: 12px;
+    font-style: normal;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+#formContacto br {
+    line-height: 10px;
+}
+
+/* =========================================
+   12. ANCLAS
+   ========================================= */
+.volver-inicio {
+    display: inline-block;
+    color: #002366;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.volver-inicio:hover {
+    color: #cc0000;
+    border-bottom: 1px solid #cc0000;
+    transform: translateX(-3px);
+}
+
+.anclaCentral {
+    display: inline-block;
+    color: #002366;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+.anclaCentral:hover {
+    color: #cc0000;
+    border-bottom: 1px solid #cc0000;
+    transform: translateX(-3px);
+}
+
+/* =========================================
+   13. ANIMACIÓN (TEXTO MÓVIL)
+   ========================================= */
+.animation {
+    background: #002366;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.textoMovimiento {
+    position: absolute;
+    white-space: nowrap;
+    color: white;
+    font-size: larger;
+    will-change: transform;
+    animation: derecha 25s linear infinite;
+}
+
+@keyframes derecha {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+}
+
+/* =========================================
+   14. FOOTER
+   ========================================= */
+.main-footer {
+    background-color: azure;
+    padding: 25px 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.contenedorFooter {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+    text-align: center;
+}
+
+.logoFooter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #2c3e50;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #0d6efd;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-social a {
+    color: rgb(255, 0, 0);
+}
+
+.footer-social a:hover {
+    color: #0d6efd;
+}
+
+.footer_copy {
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+/* =========================================
+   15. MISCELÁNEOS
+   ========================================= */
+.nos {
+    font-weight: bold;
+}
+
+/* =========================================
+   16. RESPONSIVE — Tablet (max-width: 1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    nav {
+        padding: 0 20px;
+    }
+
+    .botonMenu {
+        display: block;
+        z-index: 1001;
+        text-align: right;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #002366;
+        padding: 20px 0;
+        z-index: 1000;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+    }
+
+    #controlMenu:checked + .botonMenu + .menu {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    aside.containerFactura,
+    section.containerData,
+    #formContacto,
+    #mapaCostaRica,
+    .aboutUS {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+
+    .carousel,
+    .banner-servicios {
+        width: 95%;
+        max-width: 940px;
+        height: auto;
+        flex-direction: column;
+        margin: 20px auto;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+    }
+
+    .banner-img,
+    .banner-info {
+        flex: none;
+        width: 100%;
+    }
+
+    .contenedor-nosotros,
+    .contenedor-principal {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .contenedor-principal {
+        grid-template-areas:
+            "carro"
+            "videoIZQ"
+            "videoDER";
+        gap: 20px;
+    }
+
+    .center-car { grid-row: 1; }
+    .video-lateral.izquierda { grid-row: 2; }
+    .video-lateral.derecha { grid-row: 3; }
+
+    .video-lateral video {
+        max-height: 250px;
+    }
+
+    .layout-filtros {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .filtros-container {
+        width: 180px;
+    }
+
+    .espacio-derecha {
+        display: none;
+    }
+
+    .contenedorFooter {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+}
+
+/* =========================================
+   17. RESPONSIVE — Tablet (max-width: 768px)
+   ========================================= */
+@media (max-width: 768px) {
+
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    aside.containerFactura,
+    section.containerData {
+        width: 100%;
+    }
+
+    .contenedor-nosotros {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedorFooter {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .layout-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .espacio-derecha {
+        display: none;
+    }
+
+    .filtros-container {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   18. RESPONSIVE — Celular pequeño (max-width: 480px)
+   ========================================= */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .logo-link {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    .botonMenu {
+        display: block;
+        text-align: right;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 1000;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+    }
+
+    #controlMenu:checked + .botonMenu + .menu {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    aside.containerFactura,
+    section.containerData,
+    #formContacto,
+    #mapaCostaRica,
+    .aboutUS {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+
+    .contenedor-nosotros,
+    .contenedor-principal {
+        grid-template-columns: 1fr;
+    }
+
+    .tablaFactura td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .carousel {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .carousel-item img {
+        height: auto;
+    }
+
+    .banner-servicios {
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .banner-img {
+        flex: 1 1 100%;
+        max-height: 160px;
+        min-height: 130px;
+    }
+
+    .banner-info {
+        flex: 1 1 100%;
+        padding: 16px;
+        gap: 10px;
+    }
+
+    .separador {
+        display: none;
+    }
+
+    .texto-banner h2 {
+        font-size: 20px;
+    }
+
+    .anclaCentral {
+        font-size: 28px;
+    }
+
+    .contenedor-contacto {
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .contenedorFooter {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
